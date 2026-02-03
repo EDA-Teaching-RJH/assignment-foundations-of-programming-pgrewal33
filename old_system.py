@@ -11,7 +11,7 @@ def run_system_monolith():
     
     
     loading = 0
-    while loading > 5:
+    while loading < 5:
         print("Loading module " + str(loading))
         loading = loading + 1
     
@@ -59,7 +59,7 @@ def run_system_monolith():
             for rank in r:
                 if rank == "Captain" or rank == "Commander": 
                     count = count + 1
-            print(f"High ranking officers:  + {count}") 
+            print(f"High ranking officers: {count}") 
             
         elif opt == "5":
             print("Shutting down.")
