@@ -49,3 +49,15 @@ def add_members(names, ranks, divisions, ids):
     ids.append(new_id)
 add_members()
 
+def main():
+    names, ranks, divisions, ids = init_database
+
+    username, opt = display_menu
+
+    while opt != 9:
+        if opt == 1:
+            add_members(names, ranks, divisions, ids)
+        elif opt == 2:
+            remove_member(names, ranks, divisions, ids)
+
+main()        
