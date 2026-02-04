@@ -123,7 +123,12 @@ def calculate_payroll(ranks):
     print(f"total payroll: {total} credits")
     return total
 
-
+def count_officers(ranks):
+    count = 0
+    for rank in ranks:
+        if rank in ["Captain", "Commander"]:
+            count += 1
+        return count
 
 def main():
     names, ranks, divisions, ids = init_database()
@@ -145,6 +150,10 @@ def main():
             filter_by_division(names, ranks, divisions, ranks)
         elif opt == 7:
             calculate_payroll(ranks)
+        elif opt == 8:
+           count = count_officers(ranks)
+           print (f"senior officers: {count}")
+        
         username, opt = display_menu()
         
 
