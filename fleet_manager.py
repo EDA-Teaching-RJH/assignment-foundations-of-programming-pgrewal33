@@ -97,6 +97,34 @@ def filter_by_division(names, ranks, divisions, ids):
         if divisions[i] == division:
             print (names[i])
 
+def calculate_payroll(ranks):
+
+    rank_values = {
+
+        "Captain": 1000,
+        "Commander": 800,
+        "Lt. Commander": 600,
+        "Lieutenant": 400,
+
+    }
+    
+    total = 0
+    print ("payroll breakdown: ")
+
+    rank_counts = {}
+    for rank in ranks:
+        total += rank_values.get(rank, 300)
+        rank_counts[rank] = rank_counts.get(rank, 0) + 1
+
+    for rank, count in rank_counts.items():
+        value = rank_values.get(rank, 300)
+        print(f"{rank}: {count} x {value} = {count * value} credits")
+
+    print(f"total payroll: {total} credits")
+    return total
+
+
+
 def main():
     names, ranks, divisions, ids = init_database()
 
@@ -115,6 +143,10 @@ def main():
             search_crew(names, ranks, divisions, ids)
         elif opt == 6:
             filter_by_division(names, ranks, divisions, ranks)
+        elif opt == 7:
+            calculate_payroll(ranks)
         username, opt = display_menu()
+        
+
 
 main()        
