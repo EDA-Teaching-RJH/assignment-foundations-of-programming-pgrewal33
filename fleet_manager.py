@@ -88,7 +88,14 @@ def search_crew(names, ranks, divisions, ids):
         if search_term.lower() in names[i].lower():
             print(f"{names[i]} - {ranks[i]} - {divisions[i]}")
 
+def filter_by_division(names, ranks, divisions, ids):
 
+    division = input("enter division: ")
+
+    print(f"{division} division members: ")
+    for i in range(len(names)):
+        if divisions[i] == division:
+            print (names[i])
 
 def main():
     names, ranks, divisions, ids = init_database()
@@ -106,6 +113,8 @@ def main():
             display_roster(names, ranks, divisions, ids)
         elif opt == 5:
             search_crew(names, ranks, divisions, ids)
+        elif opt == 6:
+            filter_by_division(names, ranks, divisions, ranks)
         username, opt = display_menu()
 
 main()        
