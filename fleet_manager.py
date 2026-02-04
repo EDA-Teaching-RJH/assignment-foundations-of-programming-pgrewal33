@@ -95,4 +95,6 @@ def main():
         elif opt == 4:
             display_roster(names, ranks, divisions, ids)
 
+        username, opt = display_menu()
+
 main()        
