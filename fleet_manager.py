@@ -75,6 +75,11 @@ def update_rank(names, ranks, ids):
     else:
         print("id not found")
 
+def display_roster(names, ranks, divisions, ids):
+    for i in range(len(names)):
+        print(f"{ids[i]}\t{names[i]}\t{ranks[i]}\t{divisions[i]}")
+
+
 def main():
     names, ranks, divisions, ids = init_database()
 
@@ -87,5 +92,7 @@ def main():
             remove_member(names, ranks, divisions, ids)
         elif opt == 3:
             update_rank(names, ranks, ids)
+        elif opt == 4:
+            display_roster(names, ranks, divisions, ids)
 
 main()        
