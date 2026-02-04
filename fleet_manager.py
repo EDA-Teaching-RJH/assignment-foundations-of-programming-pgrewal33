@@ -155,7 +155,8 @@ def main():
            print (f"senior officers: {count}")
         
         username, opt = display_menu()
-        
+    print(f"goodbye {username}")
+    print("system shutting down...")    
 
 
 main()        
