@@ -2,7 +2,7 @@ def init_database():
     names = ["Picard", "Riker", "Data", "Worf", "Forge"]
     ranks = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Lt. Commander"]
     divisions = ["Command", "Command", "Operations", "Security", "operations"]
-    ids = ["001", "002", "003", "004", "005"]
+    ids = [1, 2, 3, 4, 5]
 
     return names, ranks, divisions, ids
 
@@ -48,6 +48,19 @@ def add_members(names, ranks, divisions, ids):
     divisions.append(input("enter division: "))
     ids.append(new_id)
 
+def remove_member(names, ranks, divisions, ids):
+    remove_id = int(input("which id do you want to remove?" ))
+
+    if remove_id in ids:
+        index = ids.index(remove_id)
+
+        names.pop(index)
+        ranks.pop(index)
+        divisions.pop(index)
+        ids.pop(index)
+        print("member removed")
+    else:
+        print("invalid id")
 
 def main():
     names, ranks, divisions, ids = init_database()
@@ -57,6 +70,7 @@ def main():
     while opt != 9:
         if opt == 1:
             add_members(names, ranks, divisions, ids)
-        
+        if opt == 2:
+            remove_member(names, ranks, divisions, ids)
 
 main()        
