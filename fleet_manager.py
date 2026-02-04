@@ -79,6 +79,16 @@ def display_roster(names, ranks, divisions, ids):
     for i in range(len(names)):
         print(f"{ids[i]}\t{names[i]}\t{ranks[i]}\t{divisions[i]}")
 
+def search_crew(names, ranks, divisions, ids):
+    
+    search_term = input("enter search term: ")
+
+    print("search results")
+    for i in range (len(names)):
+        if search_term.lower() in names[i].lower():
+            print(f"{names[i]} - {ranks[i]} - {divisions[i]}")
+
+
 
 def main():
     names, ranks, divisions, ids = init_database()
@@ -94,7 +104,8 @@ def main():
             update_rank(names, ranks, ids)
         elif opt == 4:
             display_roster(names, ranks, divisions, ids)
-
+        elif opt == 5:
+            search_crew(names, ranks, divisions, ids)
         username, opt = display_menu()
 
 main()        
