@@ -62,6 +62,19 @@ def remove_member(names, ranks, divisions, ids):
     else:
         print("invalid id")
 
+def update_rank(names, ranks, ids):
+    
+    member_id = int(input("enter member id: "))
+
+    if member_id in ids:
+        index = ids.index(member_id)
+
+        new_rank = input(f"enter new rank for {names[index]}: ")
+        ranks[index] = new_rank
+        print("rank updated")
+    else:
+        print("id not found")
+
 def main():
     names, ranks, divisions, ids = init_database()
 
@@ -70,7 +83,9 @@ def main():
     while opt != 9:
         if opt == 1:
             add_members(names, ranks, divisions, ids)
-        if opt == 2:
+        elif opt == 2:
             remove_member(names, ranks, divisions, ids)
+        elif opt == 3:
+            update_rank(names, ranks, ids)
 
 main()        
