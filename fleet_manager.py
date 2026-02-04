@@ -25,9 +25,27 @@ def display_menu():
 
     try:
         opt = int(input("choose option: "))
-        return opt
+        return username, opt
     except ValueError:
         print("invalid option, please try again")
         return 0
 display_menu()
+
+def add_members(names, ranks, divisions, ids):
+    new_id = int(input("enter new crew id: "))
+    while new_id in ids:
+        print("this id already exists")
+        new_id = int(input("enter new id: "))
+    
+    valid_ranks = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Ensign"]
+    rank = input("enter new crew rank:")
+    while rank not in valid_ranks:
+        print("invalid rank")
+        rank = input("please enter a valid rank: ")
+
+    names.append(input("enter name: "))
+    ranks.append(rank)
+    divisions.append(input("enter division: "))
+    ids.append(new_id)
+add_members()
 
