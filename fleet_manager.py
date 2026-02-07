@@ -29,7 +29,7 @@ def display_menu():
     except ValueError:
         print("invalid option, please try again")
         return 0
-display_menu()
+
 
 def add_members(names, ranks, divisions, ids):
     new_id = int(input("enter new crew id: "))
